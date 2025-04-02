@@ -11,7 +11,7 @@ import TokenMetrics from '@/components/TokenMetrics';
 import SearchAndFilter from '@/components/SearchAndFilter';
 import PresaleDetails from '@/components/PresaleDetails';
 
-function Page() {
+function Home() {
   const [activeTab, setActiveTab] = useState('presales');
   const [showPresaleDetails, setShowPresaleDetails] = useState(false);
   const [selectedPresale, setSelectedPresale] = useState(null);
@@ -109,4 +109,4 @@ function Page() {
   );
 }
 
-export default Page;
+export default Home;
