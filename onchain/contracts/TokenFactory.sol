@@ -3,7 +3,7 @@
 pragma solidity ^0.8.26;
 
 import {ERC20Base} from './ERC20Base.sol';
-import {ITokenFactory} from "./interface/TokenFactory.sol";
+import {ITokenFactory} from "./interface/ITokenFactory.sol";
 import {ERC20Base} from "./ERC20Base.sol";
 
 contract TokenFactory is ITokenFactory {
