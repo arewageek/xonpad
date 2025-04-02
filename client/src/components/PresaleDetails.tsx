@@ -1,7 +1,7 @@
 import React from 'react';
 import { Calendar, Clock, Globe, Twitter, MessageCircle, X } from 'lucide-react';
 
-const PresaleDetails = ({ presale, onClose }) => {
+const PresaleDetails = ({ presale, onClose }: any) => {
     if (!presale) return null;
 
     return (

@@ -1,0 +1,16 @@
+{
+  "name": "xonpad",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "scripts": {
+    "start": "cd client && bun run dev",
+    "build": "cd client && bun run build",
+    "compile": "cd onchain && npx hardhat compile"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
