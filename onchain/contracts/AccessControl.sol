@@ -8,9 +8,9 @@ contract AccessControl {
     constructor() {
         roles[msg.sender] = keccak256(abi.encodePacked("ADMIN"));
     }
-    
-    modifier isValidCaller (address _account){
-        _hasRole(_account, keccak256(abi.encodePacked("ADMIN")));
+
+    modifier onlyRole(string memory _role){
+        _hasRole(msg.sender, keccak256(abi.encodePacked(_role)));
         _;
     }
     
@@ -21,11 +21,12 @@ contract AccessControl {
         return _role;
     }
 
-    function _revertRole(address _account) internal isValidCaller(msg.sender){
+    function _revertRole(address _account) internal onlyRole("ADMIN"){
         roles[_account] = keccak256(abi.encodePacked(address(0)));
     }
 
-    function _grantRole (address _account, string memory _role) internal isValidCaller(msg.sender){
+    function _grantRole (address _account, string memory _role) internal onlyRole("ADMIN"){
         roles[_account] = keccak256(abi.encodePacked(_role));
     }
+    
 }
