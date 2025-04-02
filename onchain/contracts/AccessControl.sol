@@ -54,4 +54,5 @@ contract AccessControl {
 
         emit RoleGranted(_account, _role);
     }
+    
 }

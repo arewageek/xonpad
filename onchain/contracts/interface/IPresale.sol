@@ -3,8 +3,23 @@
 pragma solidity ^0.8.3;
 
 interface IXonPresale {
+
+    /**
+     * Structs
+     */
+    struct Presale {
+        uint256 id;
+        uint256 startTime;
+        uint256 endTime;
+        uint256 softCap;
+        uint256 hardCap;
+        uint256 price;
+        uint256 tokenSupply;
+        uint256 tokenSold;
+    }
+
     // core functions
-    function deposit() external;
+    function deposit() payable external;
     function withdrawFunds() external;
     function claimTokens() external;
     function refund() external;
@@ -36,4 +51,23 @@ interface IXonPresale {
     function getPresaleTokenDecimals() external returns (uint256);
     function getPresaleTokenTotalSupply() external returns (uint256);
     function getPresaleTokenPrice() external returns (uint256);
+
+
+    /**
+     * Events declaration
+     */
+    event PresaleStarted(address indexed _presaleToken);
+    event Deposit(address indexed _user, uint256 _amount);
+    event Withdrawal(address indexed _user, uint256 _amount);
+    event Claim(address indexed _user, uint256 _amount);
+    event Refund(address indexed _user, uint256 _amount);
+    event EndPresale();
+
+    event SetVestingSchedule(uint256 _vestingSchedule);
+    event SetTieredPricing(uint256 _tieredPricing);
+    event PausePresale();
+    event UnPausePresale();
+
+    event SetSoftCap(uint256 _softCap);
+    event SetHardCap(uint256 _hardCap);
 }
