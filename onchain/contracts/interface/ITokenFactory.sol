@@ -6,12 +6,13 @@ import {ERC20Base} from '../ERC20Base.sol';
 
 interface ITokenFactory {
     struct Token {
-        ERC20Base contractAddy;
-        uint initialSupply;
+        address contractAddress;
+        uint256 initialSupply;
         string name;
         string symbol;
     }
 
-    function initializeContract(string memory _name, string memory _symbol, uint256 _initialSupply)  external;
+    function initializeContract(string memory _name, string memory _symbol, uint256 _initialSupply)  external payable;
+    function updateFee(uint _newFee) external;
     // function provideLiquidity(address _ca, uint amount) external;
 }
