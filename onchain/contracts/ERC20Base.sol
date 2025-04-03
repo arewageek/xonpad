@@ -8,8 +8,10 @@ import {ERC20Pausable} from "@openzeppelin/contracts/token/ERC20/extensions/ERC2
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
 contract ERC20Base is ERC20, Ownable, ERC20Burnable, ERC20Pausable {
-    constructor(string memory name, string memory symbol, address _owner, uint initialSupply) ERC20(name, symbol) Ownable(_owner) {
-        _mint(_owner, initialSupply * 10 ** decimals());
+    event Mint(address indexed to, uint256 amount);
+    
+    constructor (string memory _name, string memory _symbol, address _owner, uint _initialSupply) ERC20(_name, _symbol) Ownable(_owner) {
+        _mint(_owner, _initialSupply * 10 ** decimals());
     }
 
     function pause() public onlyOwner {

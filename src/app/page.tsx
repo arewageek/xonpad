@@ -16,19 +16,19 @@ function Page() {
   const [showPresaleDetails, setShowPresaleDetails] = useState(false);
   const [selectedPresale, setSelectedPresale] = useState(null);
 
-  const handlePresaleClick = (presale) => {
+  const handlePresaleClick = (presale: any) => {
     setSelectedPresale(presale);
     setShowPresaleDetails(true);
   };
 
   const handleCreateToken = () => {
     setActiveTab('create');
-    window.scrollTo({ top: document.getElementById('main-content').offsetTop, behavior: 'smooth' });
+    window.scrollTo({ top: document.getElementById('main-content')?.offsetTop, behavior: 'smooth' });
   };
 
   const handleViewPresales = () => {
     setActiveTab('presales');
-    window.scrollTo({ top: document.getElementById('main-content').offsetTop, behavior: 'smooth' });
+    window.scrollTo({ top: document.getElementById('main-content')?.offsetTop, behavior: 'smooth' });
   };
 
   return (
