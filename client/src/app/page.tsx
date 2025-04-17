@@ -5,7 +5,6 @@ import { Rocket, Shield, Users, Coins, Lock } from 'lucide-react';
 import ActivePresales from '@/components/ActivePresales';
 import CreateToken from '@/components/CreateToken';
 import LiquidityLocker from '@/components/LiquidityLocker';
-import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import TokenMetrics from '@/components/TokenMetrics';
 import SearchAndFilter from '@/components/SearchAndFilter';
@@ -32,8 +31,7 @@ function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white">
-      <Navbar />
+    <>
       <Hero onCreateToken={handleCreateToken} onViewPresales={handleViewPresales} />
 
       <TokenMetrics />
@@ -105,7 +103,7 @@ function Home() {
           onClose={() => setShowPresaleDetails(false)}
         />
       )}
-    </div>
+    </>
   );
 }
 
