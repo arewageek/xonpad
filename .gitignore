@@ -45,3 +45,5 @@ next-env.d.ts
 
 .gitignore
 node_modules
+.vscode/
+.wake/
