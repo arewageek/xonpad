@@ -12,5 +12,8 @@
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "react-github-btn": "^1.4.0"
   }
 }
