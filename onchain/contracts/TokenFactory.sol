@@ -1,12 +1,13 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.26;
+
+pragma solidity ^0.8.28;
 
 import {ERC20Base} from "./ERC20Base.sol";
 import {ITokenFactory} from "./interface/ITokenFactory.sol";
 import {AccessControl} from "./AccessControl.sol";
 
 contract TokenFactory is ITokenFactory, AccessControl {
-    address[] public tokenContracts; 
+    address[] public tokenContracts;
     mapping(address => Token) public tokens;
     uint256 fee;
 
@@ -21,13 +22,13 @@ contract TokenFactory is ITokenFactory, AccessControl {
         _chargeFee();
 
         ERC20Base token = _createToken(_name, _symbol, _initialSupply);
-        
+
         emit TokenCreated(address(token), _name, _symbol, _initialSupply, msg.sender);
     }
 
     function updateFee(uint256 _newFee) external onlyRole(ADMIN_ROLE) {
         fee = _newFee;
-        
+
         emit FeeUpdated(_newFee);
     }
 

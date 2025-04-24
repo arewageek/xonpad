@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.3;
+pragma solidity ^0.8.28;
 
 interface IXonPresale {
 
@@ -43,7 +43,7 @@ interface IXonPresale {
     function getVestingSchedule() external returns (uint256);
     function getTieredPricing() external returns (uint256);
     function getRaisedAmount() external returns (uint256);
-    
+
     // fetch token information
     function getPresaleToken() external returns (address);
     function getPresaleTokenName() external returns (string memory);
