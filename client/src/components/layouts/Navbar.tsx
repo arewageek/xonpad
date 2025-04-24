@@ -8,7 +8,7 @@ const Navbar = () => {
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center space-x-2">
                         <Rocket className="w-8 h-8 text-blue-500" />
-                        <span className="text-xl font-bold">Xonpad Launchpad</span>
+                        <span className="text-xl font-bold">Xonpad</span>
                     </div>
 
                     <div className="flex items-center space-x-4">

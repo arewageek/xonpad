@@ -1,7 +1,7 @@
 import React from 'react';
 import { Timer, Users, Wallet } from 'lucide-react';
 
-const ActivePresales = ({ onPresaleClick }) => {
+const ActivePresales = ({ onPresaleClick }: any) => {
     const presales = [
         {
             id: 1,

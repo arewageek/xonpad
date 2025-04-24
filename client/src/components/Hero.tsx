@@ -1,7 +1,7 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
 
-const Hero = ({ onCreateToken, onViewPresales }) => {
+const Hero = ({ onCreateToken, onViewPresales }: any) => {
     return (
         <div className="relative overflow-hidden bg-slate-900 py-24">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10" />

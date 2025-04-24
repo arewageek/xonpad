@@ -5,13 +5,12 @@ import { Rocket, Shield, Users, Coins, Lock } from 'lucide-react';
 import ActivePresales from '@/components/ActivePresales';
 import CreateToken from '@/components/CreateToken';
 import LiquidityLocker from '@/components/LiquidityLocker';
-import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import TokenMetrics from '@/components/TokenMetrics';
 import SearchAndFilter from '@/components/SearchAndFilter';
 import PresaleDetails from '@/components/PresaleDetails';
 
-function Page() {
+function Home() {
   const [activeTab, setActiveTab] = useState('presales');
   const [showPresaleDetails, setShowPresaleDetails] = useState(false);
   const [selectedPresale, setSelectedPresale] = useState(null);
@@ -32,8 +31,7 @@ function Page() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white">
-      <Navbar />
+    <>
       <Hero onCreateToken={handleCreateToken} onViewPresales={handleViewPresales} />
 
       <TokenMetrics />
@@ -105,8 +103,8 @@ function Page() {
           onClose={() => setShowPresaleDetails(false)}
         />
       )}
-    </div>
+    </>
   );
 }
 
-export default Page;
+export default Home;

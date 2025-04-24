@@ -1,15 +1,15 @@
 import React from 'react';
 import { Calendar, Clock, Globe, Twitter, MessageCircle, X } from 'lucide-react';
 
-const PresaleDetails = ({ presale, onClose }) => {
+const PresaleDetails = ({ presale, onClose }: any) => {
     if (!presale) return null;
 
     return (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 backdrop-blur-lg">
             <div className="bg-slate-800 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
                 <button
                     onClick={onClose}
-                    className="absolute top-4 left-4 z-10 bg-slate-800/80 p-2 rounded-lg hover:bg-slate-700 transition-colors"
+                    className="absolute top-4 left-4 z-10 bg-slate-800/80 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer"
                 >
                     <X className="w-5 h-5" />
                 </button>
