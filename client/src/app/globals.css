@@ -1,26 +1,65 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: 210 20% 4%;
+  --foreground: 210 20% 98%;
+  --card: 210 20% 6%;
+  --card-foreground: 210 20% 98%;
+  --popover: 210 20% 4%;
+  --popover-foreground: 210 20% 98%;
+  --primary: 155 100% 50%; /* Electric Green/Mint */
+  --primary-foreground: 210 20% 4%;
+  --secondary: 210 20% 12%;
+  --secondary-foreground: 210 20% 98%;
+  --muted: 210 20% 10%;
+  --muted-foreground: 210 20% 60%;
+  --accent: 155 100% 50%;
+  --accent-foreground: 210 20% 4%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 20% 98%;
+  --border: 210 20% 12%;
+  --input: 210 20% 12%;
+  --ring: 155 100% 50%;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-[#080a0b] text-foreground antialiased selection:bg-emerald-500/30 selection:text-emerald-200;
+    /* Grid background */
+    background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .pro-card {
+    @apply bg-[#0e1113] border border-white/5 shadow-[0_8px_32px_-4px_rgba(0,0,0,0.5)] transition-all duration-300;
+  }
+  
+  .pro-input {
+    @apply bg-[#080a0b] border border-white/10 rounded-xl focus:border-emerald-500/50 focus:ring-4 focus:ring-emerald-500/5 transition-all outline-none;
+  }
+
+  .text-pro-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-emerald-500/50;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .sidebar-link-active {
+    @apply bg-emerald-500/10 text-emerald-500 border-r-2 border-emerald-500;
+  }
 }

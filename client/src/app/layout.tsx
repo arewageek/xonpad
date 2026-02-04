@@ -1,22 +1,20 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layouts/Navbar";
 
-const geistSans = localFont({
-  src: "../fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
 });
-const geistMono = localFont({
-  src: "../fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
-  title: "Xonpad Token Launchpad",
-  description: "Generate and deploy your tokens with ease",
+  title: "Xonpad | Institutional Token Launchpad",
+  description: "Secure, professional, and decentralized token launching infrastructure for the Ethereum ecosystem.",
 };
 
 export default function RootLayout({
@@ -25,14 +23,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white">
-          <Navbar />
-          {children}
-        </div>
+    <html lang="en" className="dark">
+      <body className={`${inter.variable} ${geistMono.variable} font-sans`}>
+        {children}
       </body>
     </html>
   );

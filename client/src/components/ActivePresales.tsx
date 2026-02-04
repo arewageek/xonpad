@@ -1,5 +1,5 @@
 import React from 'react';
-import { Timer, Users, Wallet } from 'lucide-react';
+import { Timer, Users, Wallet, ArrowRight, Shield, TrendingUp, CheckCircle2 } from 'lucide-react';
 
 const ActivePresales = ({ onPresaleClick }: any) => {
     const presales = [
@@ -13,15 +13,8 @@ const ActivePresales = ({ onPresaleClick }: any) => {
             participants: 234,
             endsIn: "2d 14h",
             image: "https://images.unsplash.com/photo-1614854262318-831574f15f1f?auto=format&fit=crop&q=80&w=400&h=400",
-            startDate: "Mar 10, 2024",
-            endDate: "Mar 17, 2024",
-            tokenPrice: "0.00015 ETH",
-            listingPrice: "0.00018 ETH",
-            initialMarketCap: "$780,000",
-            liquidityPercent: "70%",
-            lockupTime: "365 days",
-            softCap: "100 ETH",
-            hardCap: "200 ETH"
+            health: "98/100",
+            category: "Metaverse"
         },
         {
             id: 2,
@@ -33,15 +26,8 @@ const ActivePresales = ({ onPresaleClick }: any) => {
             participants: 156,
             endsIn: "5d 8h",
             image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=400&h=400",
-            startDate: "Mar 15, 2024",
-            endDate: "Mar 20, 2024",
-            tokenPrice: "0.0001 ETH",
-            listingPrice: "0.00012 ETH",
-            initialMarketCap: "$520,000",
-            liquidityPercent: "65%",
-            lockupTime: "180 days",
-            softCap: "50 ETH",
-            hardCap: "150 ETH"
+            health: "92/100",
+            category: "DeFi"
         },
         {
             id: 3,
@@ -53,85 +39,91 @@ const ActivePresales = ({ onPresaleClick }: any) => {
             participants: 312,
             endsIn: "16h",
             image: "https://images.unsplash.com/photo-1616455579100-2ceaa4eb2d37?auto=format&fit=crop&q=80&w=400&h=400",
-            startDate: "Mar 8, 2024",
-            endDate: "Mar 16, 2024",
-            tokenPrice: "0.0002 ETH",
-            listingPrice: "0.00025 ETH",
-            initialMarketCap: "$950,000",
-            liquidityPercent: "75%",
-            lockupTime: "365 days",
-            softCap: "120 ETH",
-            hardCap: "180 ETH"
+            health: "95/100",
+            category: "Gaming"
         }
     ];
 
     return (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-6">
             {presales.map((presale) => (
                 <div
                     key={presale.id}
-                    className="bg-slate-800 rounded-xl overflow-hidden hover:transform hover:scale-[1.02] transition-all cursor-pointer"
                     onClick={() => onPresaleClick(presale)}
+                    className="group relative bg-[#131618] border border-white/5 rounded-2xl p-6 transition-all duration-300 hover:border-emerald-500/30 cursor-pointer overflow-hidden"
                 >
-                    <div className="relative h-48">
-                        <img
-                            src={presale.image}
-                            alt={presale.name}
-                            className="w-full h-full object-cover"
-                        />
-                        <div className="absolute top-4 right-4 bg-blue-600 px-3 py-1 rounded-full text-sm">
-                            {presale.symbol}
+                    {/* Header: Name, Symbol, & Category */}
+                    <div className="flex items-start justify-between mb-8">
+                        <div className="flex items-center space-x-4">
+                            <div className="w-12 h-12 rounded-xl overflow-hidden border border-white/10 group-hover:border-emerald-500/50 transition-colors">
+                                <img src={presale.image} alt="" className="w-full h-full object-cover" />
+                            </div>
+                            <div>
+                                <h3 className="text-base font-bold text-white tracking-tight">{presale.name}</h3>
+                                <div className="flex items-center space-x-2 mt-0.5">
+                                    <span className="text-[10px] font-bold text-slate-500">{presale.symbol}</span>
+                                    <span className="text-[10px] px-2 py-0.5 bg-white/5 rounded-md text-slate-400 font-bold uppercase tracking-wider">{presale.category}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="flex flex-col items-end">
+                            <div className="flex items-center text-emerald-500 space-x-1.5">
+                                <Shield className="w-3.5 h-3.5" />
+                                <span className="text-[10px] font-black">{presale.health}</span>
+                            </div>
+                            <span className="text-[9px] text-slate-700 font-bold uppercase mt-1 tracking-widest">Audit Score</span>
                         </div>
                     </div>
 
-                    <div className="p-6">
-                        <h3 className="text-xl font-bold mb-4">{presale.name}</h3>
-
-                        <div className="mb-4">
-                            <div className="flex justify-between text-sm text-slate-300 mb-2">
-                                <span>Progress</span>
-                                <span>{presale.progress}%</span>
-                            </div>
-                            <div className="w-full bg-slate-700 rounded-full h-2">
-                                <div
-                                    className="bg-blue-600 h-2 rounded-full"
-                                    style={{ width: `${presale.progress}%` }}
-                                />
-                            </div>
+                    {/* Funding Progress Section */}
+                    <div className="space-y-4 mb-8">
+                        <div className="flex justify-between items-end">
+                             <div className="space-y-1">
+                                <span className="text-[10px] font-black text-slate-700 uppercase tracking-widest block">Total Raised</span>
+                                <div className="text-lg font-bold text-white flex items-center">
+                                    {presale.raised}
+                                    <span className="ml-2 text-[10px] text-slate-500 font-bold">/ {presale.goal}</span>
+                                </div>
+                             </div>
+                             <div className="text-right">
+                                <div className="text-xl font-black text-emerald-500 italic">{presale.progress}%</div>
+                             </div>
                         </div>
+                        <div className="w-full h-1 bg-[#0a0c0d] rounded-full overflow-hidden">
+                            <div 
+                                className="h-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.3)] transition-all duration-1000"
+                                style={{ width: `${presale.progress}%` }}
+                            />
+                        </div>
+                    </div>
 
-                        <div className="grid grid-cols-2 gap-4 mb-6">
+                    {/* Metadata Grid */}
+                    <div className="grid grid-cols-2 gap-4 pt-6 border-t border-white/5">
+                        <div className="flex items-center space-x-2.5">
+                            <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/5">
+                                <Users className="w-3.5 h-3.5 text-slate-500" />
+                            </div>
                             <div>
-                                <div className="text-sm text-slate-400">Raised</div>
-                                <div className="font-semibold">{presale.raised}</div>
+                                <div className="text-xs font-bold text-white">{presale.participants}</div>
+                                <div className="text-[9px] text-slate-700 font-bold uppercase tracking-widest">Wallets</div>
+                            </div>
+                        </div>
+                        <div className="flex items-center space-x-2.5">
+                            <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/5">
+                                <Timer className="w-3.5 h-3.5 text-rose-500/70" />
                             </div>
                             <div>
-                                <div className="text-sm text-slate-400">Goal</div>
-                                <div className="font-semibold">{presale.goal}</div>
+                                <div className="text-xs font-bold text-white">{presale.endsIn}</div>
+                                <div className="text-[9px] text-slate-700 font-bold uppercase tracking-widest">Ending</div>
                             </div>
                         </div>
+                    </div>
 
-                        <div className="flex items-center justify-between text-sm text-slate-300 mb-6">
-                            <div className="flex items-center">
-                                <Users className="w-4 h-4 mr-2" />
-                                {presale.participants} participants
-                            </div>
-                            <div className="flex items-center">
-                                <Timer className="w-4 h-4 mr-2" />
-                                Ends in {presale.endsIn}
-                            </div>
-                        </div>
-
-                        <button
-                            className="w-full py-3 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors flex items-center justify-center"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                onPresaleClick(presale);
-                            }}
-                        >
-                            <Wallet className="w-4 h-4 mr-2" />
-                            Participate Now
-                        </button>
+                    {/* Subtle Overlay Action */}
+                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                         <div className="p-2 bg-emerald-500 rounded-xl shadow-lg shadow-emerald-500/20">
+                            <ArrowRight className="w-4 h-4 text-black" />
+                         </div>
                     </div>
                 </div>
             ))}
