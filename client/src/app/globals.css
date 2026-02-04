@@ -3,33 +3,27 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Use hex directly in theme for now to avoid HSL mapping issues in v4 alpha/beta */
+  --color-background: #080a0b;
+  --color-foreground: #f8fafc;
+  --color-emerald-500: #10b981;
+  --color-emerald-400: #34d399;
+  --color-emerald-200: #a7f3d0;
 }
 
 :root {
   --background: 210 20% 4%;
   --foreground: 210 20% 98%;
-  --card: 210 20% 6%;
-  --card-foreground: 210 20% 98%;
-  --popover: 210 20% 4%;
-  --popover-foreground: 210 20% 98%;
-  --primary: 155 100% 50%; /* Electric Green/Mint */
-  --primary-foreground: 210 20% 4%;
-  --secondary: 210 20% 12%;
-  --secondary-foreground: 210 20% 98%;
-  --muted: 210 20% 10%;
-  --muted-foreground: 210 20% 60%;
-  --accent: 155 100% 50%;
-  --accent-foreground: 210 20% 4%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 20% 98%;
-  --border: 210 20% 12%;
-  --input: 210 20% 12%;
-  --ring: 155 100% 50%;
+  --emerald-500: 155 100% 50%;
 }
 
 @layer base {
   body {
-    @apply bg-[#080a0b] text-foreground antialiased selection:bg-emerald-500/30 selection:text-emerald-200;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    @apply antialiased selection:bg-emerald-500/30 selection:text-emerald-200;
+    
     /* Grid background */
     background-image: 
       linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
